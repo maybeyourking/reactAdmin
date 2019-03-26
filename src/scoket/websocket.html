@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>webscoket</title>
+</head>
+<body>
+<button onclick="sendmsg()">sendmsg</button>
+<button onclick="closeWs()">主动断开连接</button>
+</body>
+</html>
+<script>
+    const ws = new WebSocket('ws://localhost:8080/');
+    ws.onopen=()=>{
+        console.log('与服务器连接')
+    }
+    ws.onmessage=(msg)=>{
+        console.log(msg)
+        alert('服务器：'+msg.data)
+    }
+    function sendmsg(){
+        ws.send('我是客户端，我发送了数据')
+    }
+    function closeWs(){
+        ws.close()
+        console.log('与服务器断开连接')
+    }
+</script> 

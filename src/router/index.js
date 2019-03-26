@@ -3,6 +3,7 @@ import {BrowserRouter as Router,Route,Switch,Redirect} from 'react-router-dom'
 import App from '../App';
 import Login from '../pages/login/login'
 import Admin from '../pages/admin/admin'
+import Test from '../localstorage/test'
 let Index = ()=>{
     return <div>this is index</div>
 }
@@ -28,6 +29,7 @@ class Routers extends Component{
                             
                         }}>
                         </Route>
+                        <Route path='/test' component={Test}></Route>{/*localstorage测试路由*/}
                     </Switch>
                     </Router> 
                 </App>
